@@ -35,16 +35,15 @@ app.use(cors());
 app.use(morgan('dev'));
 
 //static files location
-app.use(express.static(__dirname+'/public'));
-
+//app.use(express.static(__dirname+'/public'));
+app.use(express.static(path.join(__dirname, '../build')))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build'))
+})
 //API ROUTES
 var apiRoutes = require('./routes/api')(app,express);
 app.use('/api', apiRoutes);
 
-
-app.get('*', function(req, res){
-    res.sendFile(path.join(__dirname+'/public/index.html'));
-});
 
 //START SERVER
 app.listen(config.port);
