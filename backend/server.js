@@ -40,8 +40,8 @@ app.use(morgan('dev'));
 //static files location
 //app.use(express.static(__dirname+'/public'));
 app.use(express.static('build'));
-app.get('*', function (req, res) {
-    res.sendFile('index.html');
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/build/index.html'));
   });
 //API ROUTES
 var apiRoutes = require('./routes/api')(app,express);
