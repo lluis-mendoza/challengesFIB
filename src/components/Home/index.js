@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { logout, getUserInfo, getUserChallenges, getUsers } from '../../redux/actions/userActions';
 import { getChallenges, foundChallenge} from '../../redux/actions/challengesActions';
+import './index.css';
 
 import {
     Card,
