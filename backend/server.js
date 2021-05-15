@@ -42,11 +42,11 @@ app.use('/api', apiRoutes);
 //static files location
 if (process.env.NODE_ENV === "production"){
     // Exprees will serve up production assets
-    app.use(express.static(path.join(__dirname, 'build')));
+    app.use(express.static(path.join(__dirname, '../build')));
 
     // Express serve up index.html file if it doesn't recognize route
     app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, 'build', 'index.html'));
+      res.sendFile(path.join(__dirname, '../build/index.html'));
     });
 }
 else app.use(express.static(__dirname+'/public'));
