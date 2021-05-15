@@ -24,6 +24,9 @@ mongoose.connect(config.database,
 //APP CONFIGURATION
 
 //grab information from POST requests
+app.use(express.json());
+app.use(express.urlencoded({extended: true})); 
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 

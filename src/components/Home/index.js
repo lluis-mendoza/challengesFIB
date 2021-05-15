@@ -57,11 +57,12 @@ class Home extends Component {
         if (this.props.challenges != undefined){
             for(let i = 0; i<this.props.challenges.length; ++i){
                 let srcImage = "./images/" + this.props.challenges[i].image + ".png";
-                items.push(                        <Card>
+                items.push(                        <Card class="shadow-lg p-0 mb-2 bg-white rounded">
                     <Row>
                     <Col>
-                        <Card.Img style={{ width: "100px" }}
-                            roundedCircle="true"
+                        <Card.Img class="center"
+                      style={{ height: "100px" }}
+                      roundedCircle="true"
                              src={srcImage} />
                     </Col>
                     <Col>
