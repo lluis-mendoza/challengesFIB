@@ -1,10 +1,12 @@
 import { createStore, combineReducers, applyMiddleware} from 'redux';
-import userReducer from './reducers/usersReducer';
+import challengeReducer from './reducers/challengeReducer';
+import authReducer from './reducers/authReducer';
 
 import thunk from 'redux-thunk';
 
 const reducer = combineReducers({
-    userReducer
+    challengeReducer,
+    authReducer
 });
 
 const store = createStore(reducer, applyMiddleware(thunk));
