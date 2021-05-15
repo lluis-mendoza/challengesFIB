@@ -41,10 +41,10 @@ app.use(express.static(__dirname+'/public'));
 var apiRoutes = require('./routes/api')(app,express);
 app.use('/api', apiRoutes);
 
-/*
+
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+'/public/index.html'));
-});*/
+});
 
 //START SERVER
 app.listen(config.port);
