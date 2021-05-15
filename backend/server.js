@@ -24,9 +24,6 @@ mongoose.connect(config.database,
 //APP CONFIGURATION
 
 //grab information from POST requests
-app.use(express.json());
-app.use(express.urlencoded({extended: true})); 
-
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
@@ -38,11 +35,11 @@ app.use(cors());
 app.use(morgan('dev'));
 
 //static files location
-//app.use(express.static(__dirname+'/public'));
-app.use(express.static('build'));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/build/index.html'));
-  });
+if (process.env.NODE_ENV === "production"){
+    app.use(express.static('build'));
+}
+else app.use(express.static(__dirname+'/public'));
+
 //API ROUTES
 var apiRoutes = require('./routes/api')(app,express);
 app.use('/api', apiRoutes);
