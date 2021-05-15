@@ -23,11 +23,15 @@
   },
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"cd backend && npx nodemon server\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3006",
+  "engines": {
+    "node": "10.16.0"
+  },
+  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": [
       "react-app",
