@@ -34,15 +34,22 @@ app.use(cors());
 //log all requests to the console
 app.use(morgan('dev'));
 
-//static files location
-if (process.env.NODE_ENV === "production"){
-    app.use(express.static(__dirname+'/build'));
-}
-else app.use(express.static(__dirname+'/public'));
-
 //API ROUTES
 var apiRoutes = require('./routes/api')(app,express);
 app.use('/api', apiRoutes);
+
+
+//static files location
+if (process.env.NODE_ENV === "production"){
+    // Exprees will serve up production assets
+    app.use(express.static(path.join(__dirname, 'build')));
+
+    // Express serve up index.html file if it doesn't recognize route
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    });
+}
+else app.use(express.static(__dirname+'/public'));
 
 
 //START SERVER
