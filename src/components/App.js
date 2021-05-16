@@ -26,15 +26,18 @@ class App extends Component {
       <Router history={history}>
         <div className="base">
           <div className="header">
-            <h1>Challenges FIB</h1>
-            {this.props.isAuthenticated && <p>{this.props.name}</p> }
-            {this.props.isAuthenticated
-            && <GoogleLogout
-                clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-                buttonText="Logout"
-                onLogoutSuccess={this.logout}
-                >
-                </GoogleLogout>}
+            <h1 className="title">Challenges FIB</h1>
+            <div className="usernameDiv">
+              {this.props.isAuthenticated && <p>{this.props.name}</p> }
+              {this.props.isAuthenticated
+              && <GoogleLogout
+                  clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                  buttonText="Logout"
+                  onLogoutSuccess={this.logout}
+                  >
+                  </GoogleLogout>}
+            </div>
+
           </div>
           <Container>
             <Switch>

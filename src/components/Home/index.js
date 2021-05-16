@@ -44,7 +44,7 @@ class Home extends Component {
         if (this.props.users != undefined){
             let users = this.props.users;
             users.sort((a,b)=>{
-                return a.score -b.score;
+                return b.score-a.score;
             })
             let th = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th"];
             for(let i = 0; i<Math.min(7,users.length); ++i){
@@ -104,15 +104,15 @@ class Home extends Component {
                 <Col xs={6}>
                     <h3>Challenges</h3>
                     <Row>
-                    <Form onClick={this.handleEnterCode}>
-                        <Col>
-                            <Form.Control className={!this.props.codeSuccess
-                        ? "form-control is-invalid"
-                        : "form-control"} onChange={this.onChange} id="code" placeholder="Challenge Code" />
-                        </Col>
-                        <Col>
-                            <Button type="submit" variant="outline-secondary">Enter</Button>
-                        </Col>
+                    <Form inline onClick={this.handleEnterCode}>
+                        <Form.Group>
+                        <Form.Control className={!this.props.codeSuccess
+                                ? "mb-2 mr-sm-2 is-invalid"
+                                : "mb-2 mr-sm-2"} onChange={this.onChange} id="code" placeholder="Challenge Code" />
+                        </Form.Group>
+                            <Button type="submit" class="mb-2">
+                                Enter
+                            </Button>
                     </Form>
 
                     </Row>

@@ -16,9 +16,24 @@ html, body{
 .base .header {
   flex: 0 1 auto;
   text-align: center;
+  display: inline-block;
   width: 100%;
   padding: 10px;
   font-size: 20px;
   background-color: #1b262c;
   color: rgb(223, 217, 217);
+}
+.title{
+  display: inline;
+  float: left;
+  padding: 10px;
+}
+.usernameDiv{
+  padding:10px;
+  display:block;
+  float:right;
+}
+.usernameDiv p{
+  display: inline;
+  margin-right: 10px;
 }
